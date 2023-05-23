@@ -1,0 +1,115 @@
+@import '../config/mixins';
+
+.card {
+    display: block;
+    padding:0 rem(1);
+    overflow: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: 0.4s;
+
+    text-decoration: none;
+
+    color:$color-black;
+
+    &:hover {
+        transform: translateY(-4px);
+    }     
+
+    &__image {
+        width: 100%;
+        height: auto;
+    }
+    &__body {
+        background-color: $color-white;
+        padding:rem(16) rem(16);
+    }
+
+    &__title {
+        font-size: rem(18);
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        gap:rem(8);
+        margin:rem(12) 0;
+        padding:rem(12) 0 0 0;
+
+        border-top: 1px solid $color-grey;
+
+        img {
+            max-height: rem(32);
+            border-radius: 50%;
+        }
+    }
+
+    &__info {
+        color:$color-grey-dark;
+        &__item {
+            display: flex;
+            align-items: center;
+            gap:rem(8);
+        }
+    }
+
+    &__blog {
+        position: relative;
+        background-color: $color-white;
+        padding:rem(16) rem(24) rem(16) rem(24);
+
+        &__title {
+            font-size: rem(18);
+            margin-bottom: rem(12);
+            min-height: rem(60);
+        }
+        &__text {
+            color:$color-grey-dark;
+            font-size: rem(14);
+
+            -webkit-box-orient: vertical;
+            display: block;
+            display: -webkit-box;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+        }
+        .btn__wrapper {
+            margin-top: rem(26);
+            > * {
+                font-size: rem(12);
+            }
+        }
+    }
+
+    &__lists {
+        display: grid;
+        grid-template-columns: rem(60) 1fr;
+        gap:rem(20);
+        padding:rem(12);
+        border-bottom: 1px solid rgba($color-grey-dark, 0.25);
+
+        text-decoration: none;
+        color:$color-black;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: rgba($color-grey-dark, 0.25);
+        }
+
+        .card__blog {
+            padding:0;
+            background-color: transparent;
+            &__title {
+                font-size: rem(14);
+                margin-bottom: rem(8);
+            }
+            &__text {
+                font-size: rem(12);
+                -webkit-line-clamp: 2;
+            }
+        }
+    }
+}

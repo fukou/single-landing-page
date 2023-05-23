@@ -1,0 +1,101 @@
+@import '../config/mixins';
+
+.nav {
+    padding:rem(32) 0;
+    &__heading {
+        text-align: center;
+        padding:rem(32) 0;
+
+        border-bottom: 1px solid rgba($color-grey, 0.5);
+        h1,p {
+            margin:1rem 0;
+        }
+    }
+    
+    &__menu {
+        list-style: none;
+        margin:rem(32) 0;
+        padding:0;
+
+        gap:vw(16);
+        $arg: (
+            tablet: (
+                position:absolute,
+                left:0,
+                top:100%,
+                width:100%,
+                background-color:$color-white,
+                justify-content:center,
+                flex-direction:column,
+                visibility:hidden,
+                opacity:0
+            ),
+            phone: (
+                position:absolute,
+                left:0,
+                top:100%,
+                width:100%,
+                background-color:$color-white,
+                justify-content:center,
+                visibility:hidden,
+                flex-direction:column,
+                opacity:0
+            )
+        );
+
+        @include responsive($arg);
+        
+        &__item {
+            $arg: (
+                tablet: (
+                    width:100%
+                ),
+                phone: (
+                    width:100%,
+                    
+                    border-top:1px solid #eee
+                )
+            );
+
+            @include responsive($arg);
+            a:not(.btn) {
+                display: inline-flex;
+                align-items: center;
+                padding:rem(8) rem(16);
+
+                text-decoration: none;
+
+                color:$color-primary;
+                border: 3px solid $color-primary;
+                border-radius: 30px;
+
+                transition: 0.5s;
+
+                &:hover {
+                    background-color: $color-primary;
+                    color:$color-white;
+                }
+
+                
+                $arg: (
+                    tablet: (
+                        width:100%,
+                        padding:rem(8) rem(15)
+                    ),
+                    phone: (
+                        width:100%,
+                        padding:rem(8) rem(20),
+                    )
+                );
+
+                @include responsive($arg);
+            }
+
+            a {
+                @media (max-width:992px) {
+                    font-size: rem(13);
+                }
+            }
+        }
+    }
+}

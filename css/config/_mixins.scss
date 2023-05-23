@@ -1,0 +1,183 @@
+$base-font-size:15px;
+
+// Media queries
+@mixin device($type) {
+    @if $type == desktop {
+		@media (min-width: 1250px) {
+			@content;
+		}
+	}
+    @else if $type == mobile {
+		@media (max-width: 1249px) {
+			@content;
+		}
+	}
+    @else if $type == tablet {
+		@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait), (min-width: 1024px) and (max-width: 1249px) and (orientation: landscape) {
+			@content;
+		}
+	}
+	@else if $type == phone {
+		@media (max-width: 767px) and (orientation: portrait), (max-width: 1023px) and (orientation: landscape) {
+			@content;
+		}
+	}
+    @else if $type == phoneY {
+		@media (max-width: 767px) and (orientation: portrait) {
+			@content;
+		}
+	}
+     @else if $type == phoneX {
+		@media (max-width: 1023px) and (orientation: landscape) {
+			@content;
+		}
+    }
+    @else if $type == tabletY {
+		@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+			@content;
+		}
+	}
+    @else if $type == tabletX {
+		@media (min-width: 1024px) and (max-width: 1249px) and (orientation:landscape) {
+			@content;
+		}
+	}
+}
+
+// Responsive
+@mixin responsive($arg) {
+    @each $device, $values in $arg {
+        @include device($device) {
+            @each $property, $value in $values {
+                #{$property}: $value;
+            }
+        }
+    }
+}
+
+// Convert px to rem
+@function rem($number) {
+    // Strip unit
+    $number: calc($number / ($number * 0 + 1));
+    $base-font-size: $base-font-size / ($base-font-size * 0 + 1);
+    // Value
+	@return #{($number / $base-font-size) + 'rem'};
+}
+
+// Convert px to vw
+@function vw($number) {
+    // Strip unit
+    $number:calc( $number / ($number * 0 + 1));
+    $mockup-width: 1920;
+    // Value
+	@return #{calc(($number / $mockup-width) * 100) + 'vw'};
+}
+
+// Convert px to %
+@function percent($number) {
+    // Strip unit
+    $number: calc($number / ($number * 0 + 1));
+    $container-width: 1920;
+    // Value
+	@return #{calc(($number / $container-width) * 100) + '%'};
+}
+
+// aspect ratio
+@mixin aspect-ratio($width, $height) {
+	aspect-ratio: $width / $height;
+	// Fallback (current, using padding hack)
+	@supports not (aspect-ratio: 1 / 1) {
+	   &::before {
+		float: left;
+		padding-top: calc(100% * #{$height} / #{$width});
+		content: "";
+	  }
+	  &::after {
+		display: block;
+		content: "";
+		clear: both;
+	  }
+	}
+}
+
+.embed-responsive {
+	position:relative;
+	height: 0;
+	display: block;
+	> * {
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  top: 0;
+	  left: 0;
+	  display: block;
+	}
+	img {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	}
+  
+	> a picture {
+	  width: 100%;
+	  height: 100%;
+	  position: absolute;
+	  display: block;
+	  @media (max-width: 992px) {
+		position: relative;
+	  }
+	  > img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		left: 50%;
+		top: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		position: absolute;
+		display: block;
+	  }
+	}
+	&-21by9 {
+	  padding-bottom: 42.857143%;
+	  &:before {
+		display: none;
+	  }
+	}
+	&-2by1 {
+	  padding-bottom: 50%;
+	  &before {
+		display: none;
+	  }
+	}
+	&-16by9 {
+	  padding-bottom: 56.25%;
+	  &:before {
+		display: none;
+	  }
+	}
+	&-4by3 {
+	  padding-bottom: 75%;
+	  &:before {
+		display: none;
+	  }
+	}
+	&-3by4 {
+	  padding-bottom: 133.33%;
+	  &:before {
+		display: none;
+	  }
+	}
+	&-1by1 {
+	  padding-bottom: 100%;
+	  &:before {
+		display: none;
+	  }
+	}
+	&-circle {
+	  border-radius: 50%;
+	  overflow: hidden;
+	}
+  }
