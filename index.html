@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titleh</title>
+    <title>Title</title>
     <link rel="stylesheet" href="style.min.css">
 
     <!-- fonts -->
@@ -26,29 +26,62 @@
 </head>
 <body>
 
-    <nav class="nav |  container--width-xl margin--x-auto">
-      <div class="nav__heading">
-        <h1>Heading here</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis perferendis, molestiae sit doloremque sed modi eum labore sunt distinctio commodi eius sapiente beatae dolor! Illum laborum atque perspiciatis dignissimos. Quos.</p>
+    <header class="hero">
+      <nav class="nav |  container--width-xl margin--x-auto">
+        
+        <ul class="nav__menu | flex flex--justify-center">
+          <li class="nav__menu__item">
+            <a href="#heading-1">Heading 1</a>
+          </li>
+          <li class="nav__menu__item">
+            <a href="#heading-2">Heading 2</a>
+          </li>
+          <li class="nav__menu__item">
+            <a href="#heading-3">Heading 3</a>
+          </li>
+          <li class="nav__menu__item nav__menu__item--logo">
+            <img src="https://www.svgrepo.com/show/354596/zapier-icon.svg" alt="">
+          </li>
+          <li class="nav__menu__item">
+            <a href="#heading-4">Heading 4</a>
+          </li>
+          <li class="nav__menu__item">
+            <a href="#heading-5">Heading 5</a>
+          </li>
+          <li class="nav__menu__item">
+            <a href="#heading-6">Heading 6</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="hero__inner">
+        <div class="hero__inner__content">
+          <h1>Heading here</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis perferendis, molestiae sit doloremque sed modi eum labore sunt distinctio commodi eius sapiente beatae dolor! Illum laborum atque perspiciatis dignissimos. Quos.</p>
+        </div>
       </div>
-      <ul class="nav__menu | flex flex--justify-center">
-        <li class="nav__menu__item">
-          <a href="#heading-1">Heading 1</a>
-        </li>
-        <li class="nav__menu__item">
-          <a href="#heading-2">Heading 2</a>
-        </li>
-        <li class="nav__menu__item">
-          <a href="#heading-3">Heading 3</a>
-        </li>
-        <li class="nav__menu__item">
-          <a href="#heading-4">Heading 4</a>
-        </li>
-        <li class="nav__menu__item">
-          <a href="#heading-5">Heading 5 / Menu</a>
-        </li>
-      </ul>
-    </nav>
+
+      <div class="slideshow"
+           data-items="1"
+           data-arrow="false"
+           data-dots="true"
+           data-autoplay="true"
+           data-autoplaytime="3000">
+
+           <div class="slideshow__item">
+            <div class="slideshow__item__image">
+              <img src="https://images.unsplash.com/photo-1526619971180-973e2a5045fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
+            </div>
+           </div>
+
+           <div class="slideshow__item">
+            <div class="slideshow__item__image">
+              <img src="https://images.unsplash.com/photo-1528034441002-cdbf746744b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
+            </div>
+           </div>
+
+      </div>
+    </header>
 
     <main class="main |  container--width-xl margin--x-auto">
 

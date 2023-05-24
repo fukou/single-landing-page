@@ -1,8 +1,8 @@
 @import '../config/mixins';
 
 .footer {
-    background: $color-primary;
-    background: linear-gradient(101deg, $color-primary 0%, $color-secondary 100%); 
+    background-color: lighten($color-black, 8%);
+    border-top:3px solid $color-primary;
 
     color:$color-white;
     padding:vw(70) 0;

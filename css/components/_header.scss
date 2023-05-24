@@ -1,21 +1,17 @@
 @import '../config/mixins';
 
 .nav {
-    padding:rem(32) 0;
-    &__heading {
-        text-align: center;
-        padding:rem(32) 0;
-
-        border-bottom: 1px solid rgba($color-grey, 0.5);
-        h1,p {
-            margin:1rem 0;
-        }
-    }
+    padding:rem(16) 0;
+    position: absolute;
+    top:0rem;
+    
+    width: 100%;
     
     &__menu {
         list-style: none;
         margin:rem(32) 0;
         padding:0;
+        align-items: center;
 
         gap:vw(16);
         $arg: (
@@ -58,6 +54,14 @@
             );
 
             @include responsive($arg);
+
+            &--logo {
+                margin: 0 rem(32);
+                img {
+                    max-height: 60px;
+                }
+            }
+
             a:not(.btn) {
                 display: inline-flex;
                 align-items: center;
