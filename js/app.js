@@ -13,15 +13,14 @@ var app = {
         app.copyToClipboard();
     },
     mobileNavigation:() => {
-        const btnHamburger = document.querySelector('button[data-type-button="hamburger"]');
-        const wrapperMenu = document.querySelector('.header__menu');
+        const btnHamburger = document.querySelector('button[data-button-type="hamburger"]');
+        const wrapperMenu = document.querySelector('.nav__menu');
 
         const isButtonExist = btnHamburger;
         if(typeof(isButtonExist) != 'undefined' && isButtonExist != null) {
 
             btnHamburger.addEventListener("click", function() {
                 wrapperMenu.classList.toggle("is-shown");
-                this.closest("header").classList.toggle("is-changed");
                 if(wrapperMenu.classList.contains('is-shown')) {
                     this.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
                 } else {
