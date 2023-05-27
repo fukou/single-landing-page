@@ -197,7 +197,7 @@ body {
 
               &[role="tab"][aria-selected="true"] {
 
-                background-color: lighten($color-black, 15%);
+                background-color: $color-secondary;
               }
             }
             
