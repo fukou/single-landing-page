@@ -1,7 +1,6 @@
 /*
 Author: Faiz Ichsan Jaya
-Last updated: 16/2/2023
-
+Last updated: 27/5/2023
 */
 
 var app = {
@@ -9,8 +8,7 @@ var app = {
         app.mobileNavigation();
         app.tinySlider();
         app.accordion();
-        app.modal();
-        app.copyToClipboard();
+        app.loadTabs();
     },
     mobileNavigation:() => {
         const btnHamburger = document.querySelector('button[data-button-type="hamburger"]');
@@ -137,24 +135,11 @@ var app = {
 
         items.forEach((item) => item.addEventListener("click", toggleAccordion));
     },
-    modal:() => {
-        MicroModal.init({
-            disableScroll:true
-        });
-    },
-    copyToClipboard:() => {
-        let copyText = document.querySelector("[class*='copy-text']");
-        copyText.querySelector("button").addEventListener("click", function () {
-            let input = copyText.querySelector("input.text");
-            input.select();
-            document.execCommand("copy");
-            copyText.classList.add("active");
-            window.getSelection().removeAllRanges();
-            setTimeout(function () {
-                copyText.classList.remove("active");
-            }, 1500);
-        });
-
+    loadTabs:() => {
+        const isTabsExist = document.querySelector("[data-tabs");
+        if(typeof(isTabsExist) != 'undefined' && isTabsExist != null){
+           const tabs = new Tabby("[data-tabs]");
+        }
     }
 };
   

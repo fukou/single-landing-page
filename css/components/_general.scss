@@ -1,5 +1,10 @@
 @import '../config/mixins';
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+}
+
 body {
     font-family: $body-font;
     background-color: $color-black;
@@ -145,4 +150,62 @@ body {
         }
     }
 
+}
+
+.wrapper {
+    &__tabs {
+        &__menu {
+          border: 0!important;
+          display: flex;
+          align-items: center;
+          gap:0.25rem;
+          list-style: none;
+          
+          height: 100%;
+          li {
+            a {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              height: 100%;
+              width: 100%;
+  
+              padding: 0.65rem 1rem;
+  
+              font-size: 1.175rem;
+              text-transform: uppercase;
+              
+              border-radius: 0;
+              border: 0!important;
+
+              color:$color-white;
+              text-decoration: none;
+              
+  
+              @media (max-width:60rem) {
+                  font-size: 1rem;
+              }
+  
+              &:hover {
+                  background-color: transparent;
+                  color:darken($color-grey, 25%);
+              }
+  
+              &[role="tab"] {
+                color:darken($color-grey, 25%);
+              }
+
+              &[role="tab"][aria-selected="true"] {
+
+                background-color: lighten($color-black, 15%);
+              }
+            }
+            
+          }
+        }
+        &__content {
+            background-color: lighten($color-black, 15%);
+            padding: 1.5rem;
+        }
+    }
 }
