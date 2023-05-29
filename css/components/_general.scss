@@ -154,12 +154,12 @@ body {
 
 .wrapper {
     &__tabs {
-        &__menu {
-          border: 0!important;
+        &__menu[role=tablist] {
           display: flex;
           align-items: center;
           gap:0.25rem;
           list-style: none;
+          border-bottom: 2px solid $color-secondary;
           
           height: 100%;
           li {
@@ -196,8 +196,8 @@ body {
               }
 
               &[role="tab"][aria-selected="true"] {
-
                 background-color: $color-secondary;
+                color:$color-white;
               }
             }
             
